@@ -57,6 +57,7 @@ flutter:
   uses-material-design: true
   assets:
     - images/firstScreenAssets/
+    - images/loginScreenAssets/
   # assets:
   #   - lib/futuers/user/presention/images/
 
