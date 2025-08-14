@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Firstscreen extends StatefulWidget {
-  const Firstscreen({super.key});
+class splashScreen extends StatefulWidget {
+  const splashScreen({super.key});
 
   @override
-  State<Firstscreen> createState() => _FirstscreenState();
+  State<splashScreen> createState() => _splashScreenState();
 }
 
-class _FirstscreenState extends State<Firstscreen> {
+class _splashScreenState extends State<splashScreen> {
   @override
   void initState() {
     // TODO: implement initState
