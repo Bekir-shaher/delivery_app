@@ -1,3 +1,5 @@
+import 'package:delivery_app/core/error/router/routeGenerator.dart';
+import 'package:delivery_app/futuers/user/presention/screens/loginScreen.dart';
 import 'package:delivery_app/futuers/user/presention/screens/splashScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +13,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: splashScreen());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/',
+      onGenerateRoute: Routegenerator.generateRouter,
+      // routes: {
+      //   '/splashScreen': (context) => const SplashScreen(),
+      //   '/': (context) => const Loginscreen(),
+      // },
+    );
   }
 }

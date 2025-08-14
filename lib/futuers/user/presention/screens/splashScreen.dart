@@ -1,18 +1,29 @@
+import 'dart:async';
+
+import 'package:delivery_app/core/error/router/routeGenerator.dart';
 import 'package:flutter/material.dart';
 
-class splashScreen extends StatefulWidget {
-  const splashScreen({super.key});
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
 
   @override
-  State<splashScreen> createState() => _splashScreenState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _splashScreenState extends State<splashScreen> {
+class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    Future.delayed(Duration(seconds: 3));
+    //فهم الكود + لا ينتقل الى شاشة التسجيل  من اول مره ممكن بعد reload
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await Future.delayed(const Duration(seconds: 2), () {
+        if (!mounted) return;
+        Navigator.pushReplacementNamed(
+          context,
+          '/',
+        ); // Replace with your home screen route
+      });
+    });
   }
 
   @override
@@ -27,7 +38,7 @@ class _splashScreenState extends State<splashScreen> {
               width: 276,
               height: 112,
               alignment: Alignment.bottomCenter,
-              child: Image.asset('images/firstScreenAssets/logo.png'),
+              child: Image.asset('images/firstScreenAssets/logo2.png'),
             ),
           ),
         ],
@@ -73,103 +84,4 @@ Stack(
     ),
   ],
 )
- */
-
-/*
-Scaffold(
-      backgroundColor: Color(0xFFE9FAFF),
-      body: SafeArea(
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.end,
-          // mainAxisSize: MainAxisSize.max,
-          children: [
-            Expanded(
-              flex: 3,
-              child: Container(
-                alignment: Alignment.center,
-                // margin: EdgeInsets.only(bottom: 120),
-                width: 276,
-                height: 112,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('images/firstScreenAssets/logo.png'),
-                  ),
-                ),
-              ),
-            ),
-
-            Expanded(
-              flex: 1,
-              child: Container(
-                margin: EdgeInsets.only(bottom: 44),
-                width: 374,
-                height: 245,
-
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('images/firstScreenAssets/build.png'),
-                  ),
-                ),
-                foregroundDecoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('images/firstScreenAssets/motor.png'),
-                  ),
-                ),
-              ),
-            ),
-            // SizedBox(height: 20),
-            // Align(
-            //   child: Stack(
-            //     alignment:
-            //         Alignment.bottomCenter, // محاذاة العناصر في المنتصف يمين يسار
-            //     children: [
-            //       Positioned(
-            //         child: Image.asset('images/firstScreenAssets/build.png'),
-            //       ),
-
-            //       Positioned(
-            //         // top: 40,
-            //         child: Image.asset(
-            //           'images/firstScreenAssets/motor.png',
-            //           width: 270,
-            //           height: 209.27,
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
-
-            // Container(
-            //   alignment: Alignment.bottomCenter,
-            //   child: Column(
-            //     children: [
-
-            //     ],
-            //   ),
-            // ),
-          ],
-        ),
-      ),
-    );
- */
-
-/*
- // Column(
-      //   mainAxisAlignment: MainAxisAlignment.center,
-      //   children: [
-
-      //     SizedBox(height: 120),
-      //   ],
-      // ),
-      // bottomSheet: Container(
-      //   alignment: Alignment.bottomCenter,
-      //   child: Stack(
-      //     children: [
-      //       Image.asset('images/firstScreenAssets/build.png'),
-      //       Positioned(
-      //         child: Image.asset('images/firstScreenAssets/motor.png'),
-      //       ),
-      //     ],
-      //   ),
-      // ),
  */
