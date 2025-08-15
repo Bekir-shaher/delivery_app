@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 class Loginform extends StatefulWidget {
@@ -16,24 +18,22 @@ class _LoginformState extends State<Loginform> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Center(
+      child: Padding(
+        padding: const EdgeInsets.all(17),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Column(
               children: [
-                Container(
-                  width: 234,
-                  height: 35,
-                  child: Text(
-                    "Welcome Back!",
-                    style: TextStyle(
-                      color: Color(0xff004F62),
-                      fontSize: 29,
-                      fontWeight: FontWeight.w600,
-                    ),
+                Text(
+                  "Welcome Back!",
+                  style: TextStyle(
+                    color: Color(0xff004F62),
+                    fontSize: 29,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
+
                 SizedBox(height: 12),
                 Text(
                   "Log Back to your account",
@@ -42,6 +42,7 @@ class _LoginformState extends State<Loginform> {
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
                   ),
+                  textAlign: TextAlign.right,
                 ),
               ],
             ),
@@ -49,18 +50,19 @@ class _LoginformState extends State<Loginform> {
 
             Form(
               key: _formKey,
-              autovalidateMode: AutovalidateMode.onUserInteraction,
+              autovalidateMode: AutovalidateMode
+                  .onUnfocus, //تفعيل التحقق من صحة النموذج عند فقدان التركيز
               child: Column(
                 children: [
                   TextFormField(
                     controller: userIdCtr,
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
-                      fillColor: Color(0xffF1F5FB),
+                      filled: true, // لتفعيل اللون الخلفية
+                      fillColor: Color(0xffF1F5FB), //لون الخلفية
                       hintText: 'User ID',
-                      filled: true, // مملؤ
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(25),
                         borderSide: BorderSide.none, // لإزالة الحدود
                       ),
                     ),
@@ -77,13 +79,13 @@ class _LoginformState extends State<Loginform> {
                     controller: passwordCtr,
                     obscureText: true,
                     decoration: InputDecoration(
+                      filled: true,
                       fillColor: Color(0xffF1F5FB),
                       hintText: 'Password',
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(25),
+                        borderSide: BorderSide.none, // لإزالة الحدود
                       ),
-                      filled: true, //مملؤ
                       contentPadding: EdgeInsets.symmetric(horizontal: 17),
                     ),
                     textAlign: TextAlign.center,
@@ -94,16 +96,20 @@ class _LoginformState extends State<Loginform> {
                       return null;
                     },
                   ),
-                  SizedBox(height: 79),
+                  SizedBox(height: 27),
                   Container(
                     alignment: Alignment.centerRight,
-                    margin: EdgeInsets.only(right: 18),
-                    child: Text(
-                      'Show More',
-                      style: TextStyle(
-                        color: Color(0xff004F62),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
+                    child: TextButton(
+                      onPressed: () {
+                        //link or logic to show more options
+                      },
+                      child: Text(
+                        'Show More',
+                        style: TextStyle(
+                          color: Color(0xff004F62),
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                   ),
@@ -113,16 +119,15 @@ class _LoginformState extends State<Loginform> {
                       if (_formKey.currentState!.validate()) {
                         userId = int.parse(userIdCtr.text);
                         password = int.parse(passwordCtr.text);
-                        // Handle login logic here
+                        // Handle login logic
                       }
                     },
                     color: Color(0xff004F62),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(25),
                     ),
-                    minWidth: 334,
+                    minWidth: double.infinity, // يسمح بتعبئة العرض بالكامل
                     height: 44,
-                    padding: EdgeInsets.only(left: 17, right: 17),
                     child: Text(
                       'Login',
                       style: TextStyle(
