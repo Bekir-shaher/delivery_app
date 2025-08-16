@@ -1,5 +1,6 @@
 import 'dart:ffi';
 
+import 'package:delivery_app/futuers/user/presention/widgets/langugeDilaog.dart';
 import 'package:delivery_app/futuers/user/presention/widgets/loginForm.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -55,7 +56,14 @@ class _LoginscreenState extends State<Loginscreen> {
                       left: 60,
                       child: Align(
                         child: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            showDialog(
+                              context: context,
+                              builder: (context) {
+                                return langugeDilaog();
+                              },
+                            );
+                          },
                           icon: Image.asset(
                             'images/loginScreenAssets/ic_language.png',
                           ),
