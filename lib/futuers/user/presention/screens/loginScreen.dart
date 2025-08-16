@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:delivery_app/futuers/user/presention/widgets/loginForm.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -14,29 +16,86 @@ class _LoginscreenState extends State<Loginscreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffFFFFFF),
-      body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(child: Loginform()),
 
-            // Stack(
-            //   alignment: Alignment.topLeft,
-            //   children: [
-            //     Positioned(
-            //       child: Image.asset('images/loginScreenAssets/ic_circle.png'),
-            //     ),
-            //   ],
-            // ),
-            // Container(
-            //   padding: EdgeInsets.zero,
-            //   margin: EdgeInsets.only(left: 26, right: 179, top: 20),
-            //   width: 170,
-            //   height: 74,
-            //   child: Image.asset('images/loginScreenAssets/logo2.png'),
-            // ),
-          ],
-        ),
+      body: ListView(
+        //يستخدم ListView للسماح بالتمرير في حالة وجود محتوى طويل
+        padding: EdgeInsets.zero, //
+
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: Container(
+                  // alignment: Alignment.bottomLeft,
+                  margin: EdgeInsets.only(left: 26, top: 54),
+                  child: Image.asset(
+                    'images/loginScreenAssets/logo2.png',
+                    width: 170,
+                    height: 74,
+                  ),
+                ),
+              ),
+              SizedBox(width: 58),
+              Expanded(
+                flex: 0,
+                child: Stack(
+                  //مشكلة
+                  clipBehavior: Clip.none, //
+                  children: [
+                    Align(
+                      child: Image.asset(
+                        'images/loginScreenAssets/ic_circle.png',
+                        width: 121,
+                        height: 127,
+                      ),
+                    ),
+
+                    Positioned(
+                      top: 51,
+                      left: 60,
+                      child: Align(
+                        child: IconButton(
+                          onPressed: () {},
+                          icon: Image.asset(
+                            'images/loginScreenAssets/ic_language.png',
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              Container(alignment: Alignment.topRight, child: null), //////
+            ],
+          ),
+
+          SizedBox(height: 132),
+
+          Loginform(),
+
+          Container(
+            margin: EdgeInsets.only(bottom: 28, top: 37),
+            padding: EdgeInsets.zero,
+            alignment: Alignment.center,
+            width: 195,
+            height: 170,
+            child: Image.asset('images/loginScreenAssets/delivery.png'),
+          ),
+        ],
       ),
     );
   }
 }
+
+
+/*
+top: -MediaQuery.of(context).size.height * 0.1
+MediaQuery.of(context).size.height = يعطيك ارتفاع الشاشة بالبكسل.
+
+* 0.1 = يعني 10% من ارتفاع الشاشة.
+
+علامة السالب - = تحرك العنصر للأعلى (خارج المكان الطبيعي).
+
+
+ */
