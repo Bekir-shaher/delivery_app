@@ -1,4 +1,6 @@
+import 'package:delivery_app/futuers/user/presention/widgets/emptyTab.dart';
 import 'package:delivery_app/futuers/user/presention/widgets/langugeDilaog.dart';
+import 'package:delivery_app/futuers/user/presention/widgets/pillTab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -114,6 +116,10 @@ class _HomescreenState extends State<Homescreen> {
               ],
             ),
           ),
+          SizedBox(height: 16),
+
+          Pilltab(),
+          SizedBox(height: 52),
         ],
       ),
     );
