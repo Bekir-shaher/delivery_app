@@ -13,6 +13,8 @@ class Loginscreen extends StatefulWidget {
 }
 
 class _LoginscreenState extends State<Loginscreen> {
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,8 +75,6 @@ class _LoginscreenState extends State<Loginscreen> {
                   ],
                 ),
               ),
-
-              Container(alignment: Alignment.topRight, child: null), //////
             ],
           ),
 

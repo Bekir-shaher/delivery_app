@@ -15,6 +15,16 @@ class _LoginformState extends State<Loginform> {
   late int userId, password;
   final _formKey = GlobalKey<FormState>();
 
+  void login() {
+    //dataBase post login
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    login();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -120,7 +130,23 @@ class _LoginformState extends State<Loginform> {
                         userId = int.parse(userIdCtr.text);
                         password = int.parse(passwordCtr.text);
                         // Handle login logic
+                        if (userId == 1 && password == 1010) {
+                          Navigator.pushReplacementNamed(
+                            context,
+                            '/homeScreen',
+                          );
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text("UserId or Password invalid"),
+                              backgroundColor: Colors.red,
+                              behavior: SnackBarBehavior
+                                  .floating, // يخليها مثل صندوق طافي
+                            ),
+                          );
+                        }
                       }
+                      print("user id: $userId, password:$password");
                     },
                     color: Color(0xff004F62),
                     shape: RoundedRectangleBorder(

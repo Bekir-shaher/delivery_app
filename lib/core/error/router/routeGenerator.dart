@@ -1,3 +1,4 @@
+import 'package:delivery_app/futuers/user/presention/screens/homeScreen.dart';
 import 'package:delivery_app/futuers/user/presention/screens/loginScreen.dart';
 import 'package:delivery_app/futuers/user/presention/screens/splashScreen.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,8 @@ class Routegenerator {
         return MaterialPageRoute(builder: (_) => const Loginscreen());
       case '/splashScreen':
         return MaterialPageRoute(builder: (_) => const SplashScreen());
+      case '/homeScreen':
+        return MaterialPageRoute(builder: (_) => const Homescreen());
       default:
         return _errorRoute();
     }

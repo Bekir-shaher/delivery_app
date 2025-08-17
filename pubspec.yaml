@@ -59,6 +59,7 @@ flutter:
     - images/firstScreenAssets/
     - images/loginScreenAssets/
     - images/langugeDilaogAssetes/
+    - images/homeScreenAssetes/
   # assets:
   #   - lib/futuers/user/presention/images/
 

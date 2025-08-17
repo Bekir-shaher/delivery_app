@@ -173,10 +173,7 @@ class _langugeDilaogState extends State<langugeDilaog> {
             onPressed: () {
               print("Selected language = $selectedLan");
               //اعدادات الللغة]
-              Navigator.popAndPushNamed(
-                context,
-                '/',
-              ); //هنا يجب ارسال اللغة المحدده
+              Navigator.pop(context, true);
             },
             child: Text(
               "Apply",
