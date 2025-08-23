@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:delivery_app/core/error/router/routeGenerator.dart';
+import 'package:delivery_app/core/router/routeGenerator.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {

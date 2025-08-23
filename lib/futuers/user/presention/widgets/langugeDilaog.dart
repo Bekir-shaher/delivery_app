@@ -13,6 +13,7 @@ class langugeDilaog extends StatefulWidget {
 
 class _langugeDilaogState extends State<langugeDilaog> {
   String selectedLan = "en";
+  String languageNo = "2";
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -33,6 +34,7 @@ class _langugeDilaogState extends State<langugeDilaog> {
               onTap: () {
                 setState(() {
                   selectedLan = "ar";
+                  languageNo = "1";
                 });
               },
               child: Container(
@@ -97,6 +99,7 @@ class _langugeDilaogState extends State<langugeDilaog> {
               onTap: () {
                 setState(() {
                   selectedLan = "en";
+                  languageNo = "2";
                 });
               },
               child: Container(

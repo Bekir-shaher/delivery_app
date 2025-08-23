@@ -1,4 +1,4 @@
-import 'package:delivery_app/core/error/router/routeGenerator.dart';
+import 'package:delivery_app/core/router/routeGenerator.dart';
 import 'package:delivery_app/futuers/user/presention/screens/loginScreen.dart';
 import 'package:delivery_app/futuers/user/presention/screens/splashScreen.dart';
 import 'package:flutter/material.dart';
