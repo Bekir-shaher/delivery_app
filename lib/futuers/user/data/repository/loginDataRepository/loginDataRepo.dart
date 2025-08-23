@@ -1,7 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:delivery_app/core/failure/failure.dart';
 import 'package:delivery_app/core/network/networkInfo.dart';
-import 'package:delivery_app/futuers/user/data/dataSource/loginatatSource/loginRemoteDataSource.dart';
+import 'package:delivery_app/futuers/user/data/dataSource/localDataBase/users.dart';
+import 'package:delivery_app/futuers/user/data/dataSource/loginRemoteDataSource/loginRemoteDataSource.dart';
 import 'package:delivery_app/futuers/user/data/model/loginModel.dart';
 import 'package:delivery_app/futuers/user/domain/repository/loginRepo.dart';
 import 'package:delivery_app/futuers/user/domain/userEntity/loginUserEntity.dart';
@@ -10,7 +11,13 @@ class LoginDataRepo implements Loginrepo {
   final Loginremotedatasource loginremotedatasource;
   final Networkinfo networkinfo;
   final Loginmodel loginmodel;
-  LoginDataRepo(this.loginremotedatasource, this.networkinfo, this.loginmodel);
+  final AppDatabase appDatabase;
+  LoginDataRepo(
+    this.loginremotedatasource,
+    this.networkinfo,
+    this.loginmodel,
+    this.appDatabase,
+  );
 
   @override
   Future<Either<Failure, LoginUserEntity>> postLoginData({
@@ -29,6 +36,7 @@ class LoginDataRepo implements Loginrepo {
       );
 
       if (response.statusCode == 200) {
+        await appDatabase.insertUser(loginmodel.DeliveryName);
         return Right(
           LoginUserEntity(
             DeliveryName: loginmodel.DeliveryName,
