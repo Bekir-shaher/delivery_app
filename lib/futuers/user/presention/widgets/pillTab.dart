@@ -1,4 +1,5 @@
 import 'package:delivery_app/futuers/user/presention/widgets/emptyTab.dart';
+import 'package:delivery_app/futuers/user/presention/widgets/orderCard.dart';
 import 'package:flutter/material.dart';
 
 class Pilltab extends StatefulWidget {
@@ -49,8 +50,33 @@ class _PilltabState extends State<Pilltab> {
               ],
             ),
           ),
-          SizedBox(height: 52),
-          Emptytab(),
+          // LayoutBuilder(
+          //   builder: (ctx, c) => SizedBox(
+          //     height: c.minHeight,
+          //     child: TabBarView(
+          //       children: [
+          //         Ordercard(),
+          //         Emptytab(),
+          //         // Center(child: Text("new")),
+          //         // Center(child: Text("other")),
+          //       ],
+          //     ),
+          //   ),
+          // ),
+
+          // Ordercard(),
+          // Emptytab(),
+          // SizedBox(
+          //   child: TabBarView(
+          //     children: [
+          //       Ordercard(),
+          //       Emptytab(),
+          //       // Center(child: Text("new")),
+          //       // Center(child: Text("other")),
+          //     ],
+          //   ),
+          // ),
+          // Expanded(child: TabBarView(children: [Ordercard(), Emptytab()])),
         ],
       ),
     );
