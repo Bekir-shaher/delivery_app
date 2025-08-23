@@ -176,7 +176,7 @@ class _langugeDilaogState extends State<langugeDilaog> {
             onPressed: () {
               print("Selected language = $selectedLan");
               //اعدادات الللغة]
-              Navigator.pop(context, true);
+              Navigator.pop(context, languageNo);
             },
             child: Text(
               "Apply",
