@@ -7,6 +7,6 @@ class Losginusecases {
   final Loginrepo loginrepo;
   Losginusecases({required this.loginrepo});
   Future<Either<Failure, LoginUserEntity>> call() {
-    return loginrepo.postLoginData();
+    return loginrepo.postLoginData(userId: '', password: '', languageNo: '');
   }
 }
