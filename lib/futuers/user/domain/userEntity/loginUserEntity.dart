@@ -1,8 +1,7 @@
-import 'package:delivery_app/futuers/user/domain/userEntity/subEntity/resulitEntity.dart';
+import 'package:delivery_app/futuers/user/domain/userEntity/ResultEntity.dart';
 
 class LoginUserEntity {
-  final String DeliveryName;
-  final ResulitEntity resulitEntity;
-
-  LoginUserEntity({required this.DeliveryName, required this.resulitEntity});
+  final String deliveryName;
+  final ResultEntity result;
+  const LoginUserEntity({required this.deliveryName, required this.result});
 }

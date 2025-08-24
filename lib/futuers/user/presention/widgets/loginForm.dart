@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:delivery_app/core/failure/failure.dart';
+import 'package:delivery_app/futuers/user/domain/repository/loginRepo.dart';
+import 'package:delivery_app/futuers/user/domain/useCase/LoginUseCase.dart';
 import 'package:delivery_app/futuers/user/presention/cubit/deleivery_cubit.dart';
 import 'package:delivery_app/futuers/user/presention/widgets/langugeDilaog.dart';
 import 'package:flutter/material.dart';
@@ -19,17 +21,14 @@ class _LoginformState extends State<Loginform> {
   late String userId, password;
   final _formKey = GlobalKey<FormState>();
 
-  void login() {}
-
   @override
   void initState() {
     super.initState();
-    login();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<DeleiveryCubit, DeleiveryState>(
+    return BlocBuilder<DeliveryCubit, DeliveryStatusState>(
       builder: (context, state) {
         return Container(
           child: Padding(
@@ -135,15 +134,15 @@ class _LoginformState extends State<Loginform> {
                       ),
                       SizedBox(height: 24),
                       MaterialButton(
-                        onPressed: () {
+                        onPressed: () async {
                           if (_formKey.currentState!.validate()) {
-                            context
-                                .read<DeleiveryCubit>()
+                            await context
+                                .read<DeliveryCubit>()
                                 .login(
                                   userId: userIdCtr.text,
                                   password: passwordCtr.text,
                                   languageNo:
-                                      "2", //يجب ان يمون تلقائي عير المستخدم
+                                      2, //يجب ان يمون تلقائي عير المستخدم
                                 )
                                 .then((sucsecc) {
                                   Navigator.pushReplacementNamed(
