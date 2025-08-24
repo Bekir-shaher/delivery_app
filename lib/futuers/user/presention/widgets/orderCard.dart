@@ -3,23 +3,20 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 
 class Ordercard extends StatelessWidget {
-  Ordercard({super.key});
-  // final String orderId;
-  // final String orderStatus;
-  // final String orderPrice;
-  // final String orderDate;
-  // final String orderStatusColor;
-  // final String orderButtonColor;
+  final String orderId; // رقم الطلب
+  final String statusName; // اسم الحالة (New/Delivered/...)
+  final Color statusColor; // لون الحالة
+  final String totalPrice; // مثل: "400 LE"
+  final String date;
 
-  // Ordercard({
-  //   required this.orderId,
-  //   required this.orderStatus,
-  //   required this.orderPrice,
-  //   required this.orderDate,
-  //   required this.orderStatusColor,
-  //   required this.orderButtonColor,
-  //   super.key,
-  // });
+  const Ordercard({
+    super.key,
+    required this.orderId,
+    required this.statusName,
+    required this.statusColor,
+    required this.totalPrice,
+    required this.date,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +49,7 @@ class Ordercard extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    "#12345678",
+                    '#$orderId',
                     style: TextStyle(color: Color(0xff808080), fontSize: 12),
                   ),
                   SizedBox(height: 8),
@@ -61,9 +58,9 @@ class Ordercard extends StatelessWidget {
                     children: [
                       InfoColum(
                         title: "Status",
-                        value: "New",
+                        value: statusName,
                         textStyle: TextStyle(
-                          color: Color(0xff29D40F), //
+                          color: statusColor, //
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
@@ -71,7 +68,7 @@ class Ordercard extends StatelessWidget {
                       Devider(),
                       InfoColum(
                         title: "Total price",
-                        value: "400 LE",
+                        value: totalPrice,
                         textStyle: TextStyle(
                           color: Color(0xff004F62),
                           fontSize: 16,
@@ -82,7 +79,7 @@ class Ordercard extends StatelessWidget {
 
                       InfoColum(
                         title: "Date",
-                        value: "1/1/2020",
+                        value: date,
                         textStyle: TextStyle(
                           color: Color(0xff004F62),
                           fontSize: 16,

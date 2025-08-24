@@ -25,11 +25,12 @@ class _EmptytabState extends State<Emptytab> {
             ),
           ),
           SizedBox(height: 16),
-          Text(
-            '''You don't have any orders in your 
-                           shistory.''', //لان expanden and flexible لا يعملان مع defaultTabBar
-            // softWrap: true, //يجعل النص يلتف
-            style: TextStyle(fontSize: 16, color: Color(0xff000000)),
+          Expanded(
+            child: Text(
+              "You don't have any orders in your history.", //لان expanden and flexible لا يعملان مع defaultTabBar
+              // softWrap: true, //يجعل النص يلتف
+              style: TextStyle(fontSize: 16, color: Color(0xff000000)),
+            ),
           ),
         ],
       ),
