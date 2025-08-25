@@ -1,5 +1,6 @@
 import 'package:delivery_app/core/network/networkInfo.dart';
 import 'package:delivery_app/futuers/user/data/dataSource/OrdersRemoteDS.dart';
+import 'package:delivery_app/futuers/user/data/dataSource/localDataBase/orders_local.dart';
 import 'package:delivery_app/futuers/user/data/repository/OrdersRepoImpl.dart';
 import 'package:delivery_app/futuers/user/domain/repository/OrdersRepo.dart';
 import 'package:delivery_app/futuers/user/domain/useCase/GetBillsUseCase.dart';
@@ -40,8 +41,9 @@ class _HomescreenState extends State<Homescreen> {
         final client = http.Client();
         final remote = OrdersRemoteDS(client);
         final network = NetworkInfoImpl(InternetConnectionChecker.instance);
+        final db = OrdersLocalDb();
 
-        final repo = OrdersRepoImpl(remote: remote, network: network);
+        final repo = OrdersRepoImpl(remote: remote, network: network, db: db);
 
         final getBillsUseCase = GetBillsUseCase(repo);
         final getStatusTypesUseCase = GetStatusTypesUseCase(repo);

@@ -16,15 +16,3 @@ final class LoginSuccess extends DeliveryStatusState {
   final String deliveryName;
   LoginSuccess(this.deliveryName);
 }
-
-
-// @immutable
-// sealed class DeleiveryState {}
-
-// final class DeleiveryInitial extends DeleiveryState {}
-
-// final class LoginSuccess extends DeleiveryState {}
-
-// final class LoginFailure extends DeleiveryState {}
-
-// final class LoginLoading extends DeleiveryState {}

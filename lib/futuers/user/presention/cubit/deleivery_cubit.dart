@@ -32,31 +32,3 @@ class DeliveryCubit extends Cubit<DeliveryStatusState> {
   }
 }
 
-// class DeleiveryCubit extends Cubit<DeleiveryState> {
-//   late LoginDataRepo loginDataRepo;
-
-//   DeleiveryCubit() : super(DeleiveryInitial());
-
-//   Future<void> login({
-//     required String userId,
-//     required String password,
-//     required String languageNo,
-//   }) async {
-//     emit(LoginLoading());
-//     final resuilt = await loginDataRepo
-//         .postLoginData(
-//           userId: userId,
-//           password: password,
-//           languageNo: languageNo,
-//         )
-//         .then((sucess) {
-//           print("success");
-//           emit(LoginSuccess());
-//         })
-//         .catchError((error) {
-//           print("error");
-
-//           emit(LoginFailure());
-//         });
-//   }
-// }
