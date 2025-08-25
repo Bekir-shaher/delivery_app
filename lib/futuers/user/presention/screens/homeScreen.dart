@@ -1,3 +1,4 @@
+import 'package:delivery_app/core/lang/cubit/lang_cubit.dart';
 import 'package:delivery_app/core/network/networkInfo.dart';
 import 'package:delivery_app/futuers/user/data/dataSource/OrdersRemoteDS.dart';
 import 'package:delivery_app/futuers/user/data/dataSource/localDataBase/orders_local.dart';
@@ -48,12 +49,13 @@ class _HomescreenState extends State<Homescreen> {
         final getBillsUseCase = GetBillsUseCase(repo);
         final getStatusTypesUseCase = GetStatusTypesUseCase(repo);
         final getReturnReasonsUseCase = GetReturnReasonsUseCase(repo);
+        final langNo = context.read<LangCubit>().state.languageNo;
 
         return OrderCubit(
           getBillsUseCase,
           getStatusTypesUseCase,
           getReturnReasonsUseCase,
-        )..loadAll(deliveryNo: '1010', langNo: 2);
+        )..loadAll(deliveryNo: '1010', langNo: langNo);
       },
       child: Scaffold(
         backgroundColor: Color(0xffFFFFFF),
@@ -121,12 +123,33 @@ class _HomescreenState extends State<Homescreen> {
                       ),
 
                       IconButton(
-                        onPressed: () {
-                          showDialog(
+                        onPressed: () async {
+                          // showDialog(
+                          //   context: context,
+                          //   builder: (context) {
+                          //     return LanguageDialog();
+                          //   },
+                          // );
+                          final langNoStr = await showDialog<String>(
                             context: context,
-                            builder: (context) {
-                              return langugeDilaog();
-                            },
+                            barrierDismissible:
+                                true, // أو false لو تحب تمنع الإغلاق العرضي
+                            builder: (_) =>
+                                const LanguageDialog(), // أعيدت تسميته بشكل مرتب
+                          );
+
+                          if (langNoStr == null) {
+                            // المستخدم سكّر الديالوج بدون ضغط "Apply"
+                            return;
+                          }
+
+                          final langNo =
+                              int.tryParse(langNoStr) ??
+                              2; // 1=AR, 2=EN (افتراضي: 2)
+                          // مثلاً إعادة تحميل البيانات بهذه اللغة:
+                          context.read<OrderCubit>().loadAll(
+                            deliveryNo: '1010',
+                            langNo: langNo,
                           );
                         },
                         icon: Container(

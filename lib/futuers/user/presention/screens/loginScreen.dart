@@ -64,7 +64,7 @@ class _LoginscreenState extends State<Loginscreen> {
                             showDialog(
                               context: context,
                               builder: (context) {
-                                return langugeDilaog();
+                                return LanguageDialog();
                               },
                             );
                           },

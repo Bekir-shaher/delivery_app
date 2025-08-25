@@ -5,6 +5,7 @@ import 'package:delivery_app/futuers/user/presention/OrderCubit/cubit/order_stat
 import 'package:delivery_app/futuers/user/presention/widgets/OrdersList.dart';
 import 'package:delivery_app/futuers/user/presention/widgets/emptyTab.dart';
 import 'package:delivery_app/futuers/user/presention/widgets/orderCard.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -55,8 +56,8 @@ class _PilltabState extends State<Pilltab> {
                   borderRadius: BorderRadius.all(Radius.circular(24)),
                 ),
                 tabs: [
-                  Tab(text: "New"),
-                  Tab(text: "Others"),
+                  Tab(text: 'New'.tr()),
+                  Tab(text: 'Others'.tr()),
                 ],
               ),
             ),

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:delivery_app/core/failure/failure.dart';
+import 'package:delivery_app/core/lang/cubit/lang_cubit.dart';
 import 'package:delivery_app/futuers/user/domain/repository/loginRepo.dart';
 import 'package:delivery_app/futuers/user/domain/useCase/LoginUseCase.dart';
 import 'package:delivery_app/futuers/user/presention/cubit/deleivery_cubit.dart';
@@ -136,13 +137,17 @@ class _LoginformState extends State<Loginform> {
                       MaterialButton(
                         onPressed: () async {
                           if (_formKey.currentState!.validate()) {
+                            final langNo = context
+                                .read<LangCubit>()
+                                .state
+                                .languageNo;
                             await context
                                 .read<DeliveryCubit>()
                                 .login(
                                   userId: userIdCtr.text,
                                   password: passwordCtr.text,
                                   languageNo:
-                                      2, //يجب ان يمون تلقائي عير المستخدم
+                                      langNo, //يجب ان يمون تلقائي عير المستخدم
                                 )
                                 .then((sucsecc) {
                                   Navigator.pushReplacementNamed(

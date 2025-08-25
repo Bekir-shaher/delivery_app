@@ -1,5 +1,6 @@
 import 'dart:ffi';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class Ordercard extends StatelessWidget {
@@ -57,7 +58,7 @@ class Ordercard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       InfoColum(
-                        title: "Status",
+                        title: 'Status'.tr(),
                         value: statusName,
                         textStyle: TextStyle(
                           color: statusColor, //
@@ -67,7 +68,7 @@ class Ordercard extends StatelessWidget {
                       ),
                       Devider(),
                       InfoColum(
-                        title: "Total price",
+                        title: 'Total price'.tr(),
                         value: totalPrice,
                         textStyle: TextStyle(
                           color: Color(0xff004F62),
@@ -78,7 +79,7 @@ class Ordercard extends StatelessWidget {
                       Devider(),
 
                       InfoColum(
-                        title: "Date",
+                        title: 'Date'.tr(),
                         value: date,
                         textStyle: TextStyle(
                           color: Color(0xff004F62),

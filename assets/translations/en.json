@@ -1,0 +1,14 @@
+{
+  "choose_language": "Choose language",
+  "arabic": "Arabic",
+  "english": "English",
+  "apply": "Apply",
+  "new": "New",
+  "others": "Others",
+  "status": "Status",
+  "total_price": "Total price",
+  "date": "Date",
+  "order_details": "Order Details",
+  "no_orders": "No orders yet",
+  "no_internet": "No internet connection"
+}
