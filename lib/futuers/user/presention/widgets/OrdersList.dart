@@ -28,7 +28,7 @@ class OrdersList extends StatelessWidget {
           return const Emptytab();
         }
 
-        log("List data: ${state.bills}");
+        log("List data: ${state.bills}"); //امر طباعه
 
         // فلترة حسب التبويب
         final List<BillItem> all = state.bills;
@@ -47,15 +47,16 @@ class OrdersList extends StatelessWidget {
           separatorBuilder: (_, __) => const SizedBox(height: 4),
           itemBuilder: (context, i) {
             final b = items[i];
-            final name = state.statusNames[b.statusFlag] ?? 'New';
-            final color = statusColor(b.statusFlag);
+            // final name = state.statusNames[b.statusFlag] ?? 'Unknow';
+            // final color = statusColor(b.statusFlag);
             final price = '${b.totalAmount.toStringAsFixed(0)} LE';
             final date = DateFormat('d/M/yyyy').format(b.billDateTime);
+            final status = getOrderStatus(b.statusFlag);
 
             return Ordercard(
               orderId: b.billNo,
-              statusName: name,
-              statusColor: color,
+              statusName: status.name,
+              statusColor: status.color,
               totalPrice: price,
               date: date,
             );

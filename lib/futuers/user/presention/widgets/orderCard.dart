@@ -21,7 +21,7 @@ class Ordercard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 342,
+      width: 344,
       height: 91,
       margin: EdgeInsets.only(top: 28),
       decoration: BoxDecoration(
@@ -38,12 +38,12 @@ class Ordercard extends StatelessWidget {
       child: Row(
         children: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(19, 4, 14, 16),
+            padding: const EdgeInsets.fromLTRB(19, 4, 0, 16),
             child: SizedBox(
               height: 91,
               width:
                   MediaQuery.of(context).size.width *
-                  0.644, //ياخذ هذا المقدار من المسحه وبحسب جميع الاجهزه
+                  0.74, //ياخذ هذا المقدار من المسحه وبحسب جميع الاجهزه
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
@@ -54,7 +54,7 @@ class Ordercard extends StatelessWidget {
                   ),
                   SizedBox(height: 8),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       InfoColum(
                         title: "Status",
@@ -93,8 +93,8 @@ class Ordercard extends StatelessWidget {
               ),
             ),
           ),
-          InfoOrder(color: Color(0xff29D40F)),
-          // Expanded(flex: -1, child: InfoOrder(color: Color(0xff29D40F))),
+          // InfoOrder(color: Color(0xff29D40F)),
+          Expanded(child: InfoOrder(color: statusColor)),
         ],
       ),
     );
@@ -110,7 +110,7 @@ class InfoOrder extends StatelessWidget {
     return Container(
       width: 44,
       height: 91,
-      margin: EdgeInsets.zero,
+      margin: EdgeInsets.only(left: 10),
       padding: EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
         color: color,
